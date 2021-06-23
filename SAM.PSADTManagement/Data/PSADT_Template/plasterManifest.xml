@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<plasterManifest schemaVersion="1.1" templateType="Project"
+  xmlns="http://www.microsoft.com/schemas/PowerShell/Plaster/v1">
+  <metadata>
+    <name>PSADT-3_8_4-Template</name>
+    <id>e4933eda-836b-4a6f-b2e3-6b94988f8596</id>
+    <version>3.8.4</version>
+    <title>PSADT-3.8.4-Template</title>
+    <description>PSADT Software Package Teamplate.</description>
+    <author>Zachary Shupp</author>
+    <tags></tags>
+  </metadata>
+  <parameters>
+    <parameter name='Vendor' type='text' prompt='Enter the name of the application vendor.'/>
+    <parameter name='ApplicationName' type='text' prompt='Enter the name of the application.'/>
+    <parameter name='ApplicationDescription' type='text' prompt='Enter the description of the application.'/>
+    <parameter name='ApplicationWebsite' type='text' prompt='Enter the url for the application download.'/>
+    <parameter name='ApplicationVersion' type='text' prompt='Enter the version of the application.'/>
+    <parameter name="ApplicationArch" type="choice" prompt="Select the Application Architecture.">
+      <choice label='&amp;32 bit' value='x86' />
+      <choice label='&amp;64 bit' value='x64' />
+    </parameter>
+    <parameter name='PackageCreator' type='user-fullname' prompt='Enter the name of the Package Creator'/>
+  </parameters>
+  <content>
+
+    <!--Create Folder Structure-->
+    <file source="" destination="AppDeployToolkit" />
+    <file source="" destination="Files" />
+    <file source="" destination="SupportFiles" />
+
+    <file source="Deploy-Application.exe" destination="Deploy-Application.exe" />
+    <file source="Deploy-Application.exe.config" destination="Deploy-Application.exe.config" />
+    <templateFile source="Deploy-Application.ps1" destination="Deploy-Application.ps1" />
+
+    <file source="AppDeployToolkit/AppDeployToolkitBanner.png" destination="AppDeployToolkit/AppDeployToolkitBanner.png" />
+    <file source="AppDeployToolkit/AppDeployToolkitConfig.xml" destination="AppDeployToolkit/AppDeployToolkitConfig.xml" />
+    <file source="AppDeployToolkit/AppDeployToolkitExtensions.ps1" destination="AppDeployToolkit/AppDeployToolkitExtensions.ps1" />
+    <file source="AppDeployToolkit/AppDeployToolkitLogo.ico" destination="AppDeployToolkit/AppDeployToolkitLogo.ico" />
+    <file source="AppDeployToolkit/AppDeployToolkitMain.cs" destination="AppDeployToolkit/AppDeployToolkitMain.cs" />
+    <file source="AppDeployToolkit/AppDeployToolkitMain.ps1" destination="AppDeployToolkit/AppDeployToolkitMain.ps1" />
+    <file source="AppDeployToolkit/LICENSE.txt" destination="AppDeployToolkit/LICENSE.txt" />
+
+    <!--End Module Creation-->
+    <message>`n`nPSADT project $PLASTER_PARAM_ApplicationName has been created`n`n</message>
+
+  </content>
+</plasterManifest>
