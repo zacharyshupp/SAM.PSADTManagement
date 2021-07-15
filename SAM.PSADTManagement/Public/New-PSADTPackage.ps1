@@ -10,6 +10,7 @@ function New-PSADTPackage {
 		.EXAMPLE
 			PS C:\> New-PSADTPackage -Name 'MS-OfficePro-2016-WIN' -Destination "E:\_Temp\Packages"
 
+			This example demonstrates how to call New-PSADTPackage.
 	#>
 
 	[CmdletBinding()]

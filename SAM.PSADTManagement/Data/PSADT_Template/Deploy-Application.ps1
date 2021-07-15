@@ -74,7 +74,7 @@ Try { Set-ExecutionPolicy -ExecutionPolicy 'ByPass' -Scope 'Process' -Force -Err
 
 # Variables: Custom Package
 [string]$appRegDisplayName = ""
-[string]$appRegInstallPath = ""
+[string]$appRegDisplayVersion = ""
 [string]$appProcesses = ""
 [int]$appCloseAppsCountDown = 300
 [int]$appRequiredDiskSpace = 10
@@ -158,10 +158,6 @@ try {
                     $message = "$appName is already installed with version: '$displayVersion'. Its version is older than this package. Continuing Install."
                     Write-Log -Message $message -Source ${CmdletName}
 
-                    if($app.InstallLocation -ne $appRegInstallPath){
-                        $appRegInstallPath = $app.InstallLocation
-                    }
-
                 }
 
             }
@@ -169,7 +165,7 @@ try {
             ## Show Welcome Message
             $siwParams = @{
                 CloseApps          = $appProcesses
-                CloseAppsCountDown = $CloseAppsCountDown
+                CloseAppsCountDown = $appCloseAppsCountDown
                 CheckDiskSpace     = $true
                 RequiredDiskSpace  = $appRequiredDiskSpace
             }
@@ -218,7 +214,7 @@ try {
             ## Show Welcome Message
             $siwParams = @{
                 CloseApps          = $appProcesses
-                CloseAppsCountDown = 600
+                CloseAppsCountDown = $appCloseAppsCountDown
             }
 
             if($AllowDefer){
@@ -288,7 +284,7 @@ try {
             ## Show Welcome Message
             $siwParams = @{
                 CloseApps          = $appProcesses
-                CloseAppsCountDown = $CloseAppsCountDown
+                CloseAppsCountDown = $appCloseAppsCountDown
                 CheckDiskSpace     = $true
             }
 
